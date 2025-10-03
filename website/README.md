@@ -3,22 +3,25 @@
 Dieses Repository enthält die Dokumentation und den Quellcode für die Website zur "Hupenden Heckklappe". 
 
 ## Installation
-
-1. Repository klonen:
+1. Git installieren
+   ```bash
+    apt update && apt install git
+    ```
+2. Repository klonen:
     ```bash
     git clone https://github.com/samuel-kuhn/HSLU_CyberWars.git
     ```
-2. In das Verzeichnis wechseln:
+3. In das Verzeichnis wechseln:
     ```bash
     cd HSLU_CyberWars/website
     ```
-3. NGINX installieren (falls noch nicht installiert):
+4. NGINX installieren (falls noch nicht installiert):
     ```bash
     sudo apt update
     sudo apt install nginx
     ```
     
-4. Server konfigurieren (z.B. Nginx):
+5. Server konfigurieren (z.B. Nginx):
     - Konfigurationsdatei unter `/etc/nginx/sites-available/zhhk` erstellen.
     - Symbolischen Link in `/etc/nginx/sites-enabled/` setzen.
     - Nginx neu starten:
@@ -27,7 +30,7 @@ Dieses Repository enthält die Dokumentation und den Quellcode für die Website 
     sudo systemctl restart nginx
     ```
 
-4. Files nach /var/www/html kopieren:
+6. Files nach /var/www/html kopieren:
     ```bash
     cp -r * /var/www/html
     ```
