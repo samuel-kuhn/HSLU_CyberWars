@@ -1,0 +1,45 @@
+## Nginx Configuration under /etc/nginx/sites-available/zhhk
+
+server {
+  listen 80;
+  listen [::]:80;
+  server_name zhhk.ch;
+
+  # Root of your static site
+  root /var/www/html;
+  index index.html;
+
+  # Serve your pages
+  location = /404.html { internal; }
+  error_page 404 /404.html;
+
+  # Try exact file, else 404 (no backend fallback needed)
+  location / {
+    try_files $uri =404;
+  }
+
+  # Static assets — set cache headers
+  location ~* \.(?:css|js)$ {
+    try_files $uri =404;
+    add_header Cache-Control "public, max-age=604800"; # 7 days
+  }
+
+  location ~* \.(?:png|jpg|jpeg|gif|webp|svg|ico)$ {
+    try_files $uri =404;
+    add_header Cache-Control "public, max-age=2592000"; # 30 days
+  }
+
+  # Security headers (simple, safe defaults)
+  add_header X-Content-Type-Options nosniff;
+  add_header X-Frame-Options SAMEORIGIN;
+  add_header Referrer-Policy strict-origin-when-cross-origin;
+  add_header Permissions-Policy "geolocation=(), microphone=(), camera=()";
+
+  # Gzip compression (good for css/js/html)
+  gzip on;
+  gzip_types text/plain text/css application/javascript application/json image/svg+xml;
+  gzip_min_length 1024;
+
+  access_log /var/log/nginx/premier_auto.access.log;
+  error_log  /var/log/nginx/premier_auto.error.log warn;
+}

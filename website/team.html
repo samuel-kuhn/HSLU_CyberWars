@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team • Zur Hupenden Heckklappe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .team-member {
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .team-member h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+    .team-member p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h4l3 5"/><path d="M5 16a2 2 0 11.001-4.001A2 2 0 015 16z"/><path d="M17 16a2 2 0 11.999-3.999A2 2 0 0117 16z"/><path d="M7 11h5l4-3h3"/></svg>
+        <span>Zur Hupenden Heckklappe</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="nav-links" id="mobileMenu">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a class="active" href="team.html">Team</a>
+        <a href="login.html">Anmelden</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Unser Team</h1>
+    <p>Lernen Sie die Menschen kennen, die Ihr Fahrzeug zuverlässig in Schuss halten – mit Erfahrung, Präzision und einem Lächeln.</p>
+
+    <section class="team-grid" aria-label="Mitarbeitende">
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=1" alt="Lara Meier">
+        <h3>Lara Meier</h3>
+        <p><em>Werkstattleiterin</em></p>
+        <p>Kfz-Meisterin, Diagnosespezialistin (Bosch), 12 Jahre Erfahrung.</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=2" alt="Cem Yildiz">
+        <h3>Cem Yildiz</h3>
+        <p><em>Diagnostik & Elektronik</em></p>
+        <p>High-Voltage-Zertifikat, OBD-Diagnose, Software-Updates & Codierung.</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=3" alt="Sofia Keller">
+        <h3>Sofia Keller</h3>
+        <p><em>Serviceberaterin</em></p>
+        <p>Kundenbetreuung, Terminplanung, Garantie- und Versicherungsabwicklung.</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=4" alt="Jonas Frei">
+        <h3>Jonas Frei</h3>
+        <p><em>Mechaniker</em></p>
+        <p>Bremsen & Fahrwerk, Reifenservice, periodische Wartungen.</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=5" alt="Jonas Frei">
+        <h3>Hannes Lustig</h3>
+        <p><em>Web-Admin</em></p>
+        <p>Website & Interne IT</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=6" alt="Mia Steiner">
+        <h3>Mia Steiner</h3>
+        <p><em>Karosserie & Lack</em></p>
+        <p>Spot-Repair, Glasarbeiten, Smart-Repair für kleine Schäden.</p>
+      </article>
+
+      <article class="team-member">
+        <img src="https://picsum.photos/200?random=7" alt="Ramon Bucher">
+        <h3>Ramon Bucher</h3>
+        <p><em>Lernender Automobil-Mechatroniker EFZ</em></p>
+        <p>Unterstützt bei Servicearbeiten, Fehlerdiagnosen und Prüfstandtests.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

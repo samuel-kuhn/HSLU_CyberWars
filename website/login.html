@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmelden • Zur Hupenden Heckklappe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h4l3 5"/><path d="M5 16a2 2 0 11.001-4.001A2 2 0 015 16z"/><path d="M17 16a2 2 0 11.999-3.999A2 2 0 0117 16z"/><path d="M7 11h5l4-3h3"/></svg>
+        <span>Zur Hupenden Heckklappe</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <div class="nav-links" id="mobileMenu">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="team.html">Team</a>
+        <a class="active" href="login.html">Anmelden</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Anmelden</h1>
+    <p>Hier können Sie sich mit Ihrem Benutzerkonto anmelden. Bei einer statischen Seite können Sie diesen Link zu Ihrem externen Portal weiterleiten.</p>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

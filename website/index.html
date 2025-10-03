@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zur Hupenden Heckklappe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html" aria-label="Zur Hupenden Heckklappe Startseite">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2-5h4l3 5"/><path d="M5 16a2 2 0 11.001-4.001A2 2 0 015 16z"/><path d="M17 16a2 2 0 11.999-3.999A2 2 0 0117 16z"/><path d="M7 11h5l4-3h3"/></svg>
+        <span>Zur Hupenden Heckklappe</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <div class="nav-links" id="mobileMenu">
+        <a class="active" href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="team.html">Team</a>
+        <a href="login.html">Anmelden</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" role="banner">
+    <div class="hero-inner">
+      <div class="kicker">Professioneller Autoservice</div>
+      <h1 class="headline">Fachgerechte Autopflege, der Sie <span class="emph">vertrauen</span> können</h1>
+      <p class="subhead">Zertifizierte Mechaniker, hochwertige Ersatzteile und unser Engagement für Ihre volle Zufriedenheit.</p>
+      <div class="actions">
+        <a class="btn primary" href="#schedule">Service buchen <span class="arrow">→</span></a>
+        <a class="btn ghost" href="#learn">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" aria-label="Highlights">
+    <article class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3l3 3-8.4 8.4a4 4 0 01-3 .9L4 19l.4-2.3a4 4 0 01.9-3l8.4-8.4z"/><path d="M16 5l3 3"/></svg>
+      <h3>Fachkundiger Service</h3>
+      <p>Zertifizierte Techniker mit jahrelanger Erfahrung.</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3>Qualitätsgarantie</h3>
+      <p>Alle Arbeiten sind durch unsere umfassende Garantie abgedeckt.</p>
+    </article>
+    <article class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+      <h3>Schnelle Abwicklung</h3>
+      <p>Für die meisten Reparaturen bieten wir einen Service am selben Tag.</p>
+    </article>
+  </section>
+
+  <section id="learn" class="container">
+    <h2>Mehr erfahren</h2>
+    <p>Wir legen Wert auf Transparenz, hochwertige Ersatzteile und faire Preise. Buchen Sie Ihren Service und erleben Sie den Unterschied.</p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

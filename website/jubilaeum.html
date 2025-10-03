@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>60 Jahre • Zur Hupenden Heckklappe</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .jubilaeum {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: var(--ink);
+    }
+    .jubilaeum h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .jubilaeum p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    /* Ein versteckter Bereich, der nur sichtbar wird, wenn inline-style entfernt oder manipuliert */
+    #hiddenform {
+      display: none;
+      margin-top: 2rem;
+    }
+    #hiddenform form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #hiddenform input, #hiddenform button {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+    #hiddenform button {
+      background: var(--brand);
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h4l3 5"/><path d="M5 16a2 2 0 11.001-4.001A2 2 0 015 16z"/><path d="M17 16a2 2 0 11.999-3.999A2 2 0 0117 16z"/><path d="M7 11h5l4-3h3"/></svg>
+        <span>Zur Hupenden Heckklappe</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über uns</a>
+        <a href="team.html">Team</a>
+        <a href="login.html">Anmelden</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="jubilaeum">
+    <h1>60 Jahre Zur Hupenden Heckklappe 🎉</h1>
+    <p>
+      Seit sechs Jahrzehnten sind wir Ihr zuverlässiger Partner rund ums Auto. 
+      Was 1963 mit einer kleinen Werkstatt und einem hupenden Lieferwagen begann, 
+      ist heute ein moderner Betrieb mit einem starken Team und treuen Kundinnen und Kunden.
+    </p>
+    <p>
+      Zu unserem Jubiläum planen wir ein grosses Fest mit spannenden Aktionen, 
+      Rückblicken in die Geschichte und einem besonderen Dankeschön an alle, 
+      die uns über die Jahre begleitet haben.
+    </p>
+    <p>
+      Bleiben Sie gespannt – bald gibt es hier mehr Details zu unserem Jubiläumsprogramm!
+    </p>
+
+    <!-- @Hannes: Bitte erst ab 01.01.2026 Live schalten, damit die Kunden nicht vorher auf das Formular zugreifen können! Es befindet sich noch in Entwicklung.  -->
+    <!-- 
+    <form method="POST" action="/cgi-bin/register.py">
+      <input type="text" name="name" placeholder="Ihr Name">
+      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse">
+      <button type="submit">Anmelden</button>
+    </form>
+    -->
+
+    <!-- Aber „unauffällig“ eingebunden per iframe, das absichtlich auf display:none gesetzt ist -->
+    <iframe srcdoc="
+      &lt;form style='font-family:sans-serif;max-width:300px;margin:20px auto;display:flex;flex-direction:column;gap:8px'&gt;
+        &lt;input type='text' placeholder='Name' /&gt;
+        &lt;input type='email' placeholder='E-Mail' /&gt;
+        &lt;button&gt;Absenden&lt;/button&gt;
+      &lt;/form&gt;" 
+      style="display:none;width:100%;height:200px;border:0" 
+      title="Verstecktes Formular">
+    </iframe>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+ 
