@@ -34,60 +34,11 @@ Dieses Repository enthält die Dokumentation und den Quellcode für die Website 
     ```bash
     cp -r * /var/www/html
     ```
-7. Flask installieren für API Aufruf
-   ```bash
-   sudo apt install python3-pip && sudo apt install python3-flask python3-gunicorn gunicorn
-   ```
-8. Service erstellen für API Jubiläum
-   ```bash
-   sudo vim /etc/systemd/syystem/api_jubil.service
-   ### Content for File:
-   "
-   [Unit]
-   Description=Gunicorn service for Zur Hupenden Heckklappe API
-   After=network.target
-   
-   [Service]
-   # Path to your project
-   WorkingDirectory=/var/www/html
-   # The command to start gunicorn
-   ExecStart=/usr/bin/gunicorn --workers 3 --bind 127.0.0.1:8089 api_jubil:app
-   
-   # User to run under (change if needed)
-   User=www-data
-   Group=www-data
-   
-   Restart=always
-   RestartSec=5
-   KillSignal=SIGQUIT
-   TimeoutStopSec=20
-   
-   [Install]
-   WantedBy=multi-user.target
-   "
-   ```
-9. After this the Web-App should be working propperly.
-10. Allow user "www-data" to login to the machine and set a password. 
-```bash
-   sudo usermod -s /bin/bash www-data
-   sudo usermod -d /var/www www-data
-   sudo mkdir -p /var/www/.ssh
-   sudo chown www-data:www-data /var/www/.ssh
-   sudo chmod 700 /var/www/.ssh
-   passwd www-data (Password is: saibertel1113?)
-```
-11. Create Backup of /etc/shadow
-```bash
-   sudo cp /etc/shadow /var/www/html/.backup
-```
-
 
 ## Nutzung
 
-Die Website sollte nach dem Neustart von Nginx unter der entsprechenden unter http://10.0.2.15 erreichbar sein.
+Die Website sollte nach dem Neustart von Nginx unter der entsprechenden unter http://localhost erreichbar sein.
 
 ## Dokumentation
 
-- Es gibt ein Flag unter "/var/www/html/CrYpt1cF1L3t4t15n0T5u5p1c10U5"
-- Das Ziel ist es, dass der Benutzer das Passwort von www-data mittels hashcat cracken chan. Danach ist er im Benutzer-Kontext von www-data und geht über zu Phase2.
-- Command für john : john --format=crypt --wordlist=/usr/share/wordlists/rockyou.txt www-data.hash --min-length=14 --max-length=14
+- To be continued

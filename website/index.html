@@ -71,6 +71,26 @@
   <footer>
     © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
   </footer>
+<!-- Modal -->
+<div class="modal" id="serviceModal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close-btn" id="closeModal" aria-label="Schließen">×</button>
+    <h2 id="modalTitle">Service buchen</h2>
+
+    <form id="bookingForm">
+      <label for="nameInput">Ihr Name:</label>
+      <input type="text" id="nameInput" name="name" required placeholder="Max Mustermann">
+
+      <label for="dateInput">Wunschtermin:</label>
+      <input type="date" id="dateInput" name="date" required>
+
+      <button type="submit" class="btn primary" id="submitBooking">Jetzt buchen</button>
+    </form>
+
+    <p id="modalMessage" class="message"></p>
+  </div>
+  <div class="modal-overlay" id="modalOverlay"></div>
+</div>
 
   <script src="app.js"></script>
 </body>
