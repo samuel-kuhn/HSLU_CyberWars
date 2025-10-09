@@ -66,7 +66,20 @@ Dieses Repository enthält die Dokumentation und den Quellcode für die Website 
    WantedBy=multi-user.target
    "
    ```
-9. After this the Web-App should be working propperly. 
+9. After this the Web-App should be working propperly.
+10. Allow user "www-data" to login to the machine and set a password. 
+```bash
+   sudo usermod -s /bin/bash www-data
+   sudo usermod -d /var/www www-data
+   sudo mkdir -p /var/www/.ssh
+   sudo chown www-data:www-data /var/www/.ssh
+   sudo chmod 700 /var/www/.ssh
+   passwd www-data (Password is: saibertel1113?)
+```
+11. Create Backup of /etc/shadow
+```bash
+   sudo cp /etc/shadow /var/www/html/.backup
+```
 
 
 ## Nutzung
@@ -76,4 +89,5 @@ Die Website sollte nach dem Neustart von Nginx unter der entsprechenden unter ht
 ## Dokumentation
 
 - Es gibt ein Flag unter "/var/www/html/CrYpt1cF1L3t4t15n0T5u5p1c10U5"
-- Das Ziel ist es, dass der Benutzer das Passwort von www-data mittels hashcat cracken chan. Danach ist er im Benutzer-Kontext von www-data und geht über zu Phase2. 
+- Das Ziel ist es, dass der Benutzer das Passwort von www-data mittels hashcat cracken chan. Danach ist er im Benutzer-Kontext von www-data und geht über zu Phase2.
+- Command für john : john --format=crypt --wordlist=/usr/share/wordlists/rockyou.txt www-data.hash --min-length=14 --max-length=14
