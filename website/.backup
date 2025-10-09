@@ -1,0 +1,6 @@
+# Backup of www-data user as to not lose the password!
+www-data:$y$j9T$Bidh099nK4M4Rq2DpXIGf0$DBG82KOer5GGQu8Cx62ybvnCXnn4lm0JAdgzGWoPa25:20370:0:99999:7:::
+
+# @Harald: Remember to change the password length when we get the new server. 
+# Currently all the passwords have to be 14-Characters long, since the Server cannot handle more. (Not longer and not shorter :))
+# John should know, how we get this back if needed. 
