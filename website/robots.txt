@@ -1,0 +1,13 @@
+# This file tells web crawlers what they can and cannot access.
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+# Optional: Slow down aggressive crawlers
+Crawl-delay: 10
+
+# Contact
+# Webmaster: webmaster@nonya.com
+

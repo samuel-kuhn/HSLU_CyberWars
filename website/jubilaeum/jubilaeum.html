@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>60 Jahre • Zur Hupenden Heckklappe</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .jubilaeum {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: var(--ink);
+    }
+    .jubilaeum h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .jubilaeum p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    
+    #registration {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    #registration h2 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    #registerForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    #registerForm input {
+      padding: 14px 18px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    #registerForm input:focus {
+      outline: none;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    #registerForm button {
+      padding: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+    }
+    
+    #registerForm button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(245, 87, 108, 0.6);
+    }
+    
+    #registerForm button:active {
+      transform: translateY(0);
+    }
+    
+    #thankYou {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+    
+    #registrations {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    
+    #registrations li {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 18px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      color: white;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+    
+    #registrations li:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateX(5px);
+    }
+    
+    #registration h3 {
+      color: white;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5h4l3 5"/><path d="M5 16a2 2 0 11.001-4.001A2 2 0 015 16z"/><path d="M17 16a2 2 0 11.999-3.999A2 2 0 0117 16z"/><path d="M7 11h5l4-3h3"/></svg>
+        <span>Zur Hupenden Heckklappe</span>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Startseite</a>
+        <a href="../about.html">Über uns</a>
+        <a href="../team.html">Team</a>
+        <a href="../login.html">Anmelden</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="jubilaeum">
+    <h1>60 Jahre Zur Hupenden Heckklappe 🎉</h1>
+    <p>
+      Seit sechs Jahrzehnten sind wir Ihr zuverlässiger Partner rund ums Auto. 
+      Was 1963 mit einer kleinen Werkstatt und einem hupenden Lieferwagen begann, 
+      ist heute ein moderner Betrieb mit einem starken Team und treuen Kundinnen und Kunden.
+    </p>
+    <p>
+      Zu unserem Jubiläum planen wir ein grosses Fest mit spannenden Aktionen, 
+      Rückblicken in die Geschichte und einem besonderen Dankeschön an alle, 
+      die uns über die Jahre begleitet haben.
+    </p>
+    <p>
+      Bleiben Sie gespannt – bald gibt es hier mehr Details zu unserem Jubiläumsprogramm!
+      Sie können sich aber bereits jetzt für unser Fest anmelden!
+    </p>
+
+
+    <section id="registration">
+      <h2>Jetzt zum Jubiläum anmelden</h2>
+      <form id="registerForm">
+        <input type="text" name="name" placeholder="Ihr Name" required>
+        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+        <button type="submit">Anmelden</button>
+      </form>
+
+      <div id="thankYou">
+        ✓ Danke für Ihre Anmeldung!
+      </div>
+
+      <h3>Bisherige Anmeldungen</h3>
+      <ul id="registrations"></ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Zur Hupenden Heckklappe. Alle Rechte vorbehalten.
+  </footer>
+
+  <!--<script src="../app.js"></script> -->
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('registerForm');
+  const thankYou = document.getElementById('thankYou');
+  const list = document.getElementById('registrations');
+  
+  // Define your filepath here
+  const FILEPATH = '/var/www/html/registrations';
+
+  async function loadRegistrations() {
+    const response = await fetch(`/api/registrations?filepath=${encodeURIComponent(FILEPATH)}`);
+    if (!response.ok) return;
+    const data = await response.json();
+    list.innerHTML = '';
+    data.forEach(user => {
+      const li = document.createElement('li');
+      li.textContent = `${user.name} (${user.email})`;
+      list.appendChild(li);
+    });
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    
+    // Add filepath to the payload
+    payload.filepath = FILEPATH;
+    // @Harald: If you need more information about the API, there is a debug endpoint. REMEMBER TO DELETE IT BEFORE IT GOES INTO PRODUCTION!
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      thankYou.style.display = 'block';
+      form.reset();
+      loadRegistrations();
+      setTimeout(() => {
+        thankYou.style.display = 'none';
+      }, 3000);
+    } else {
+      alert('Fehler beim Absenden.');
+    }
+  });
+
+  loadRegistrations();
+});
+</script>
+
+</body>
+</html>
