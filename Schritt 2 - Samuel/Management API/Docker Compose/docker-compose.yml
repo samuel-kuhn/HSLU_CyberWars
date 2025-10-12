@@ -1,0 +1,14 @@
+services:
+  api: 
+    container_name: Management_API
+    image: php-api
+    ports:
+      - 8080:8080
+    secrets:
+      - auth_password
+    volumes:
+      - ./data:/usr/src/api/data
+
+secrets:
+  auth_password:
+    file: ./auth_password.txt
