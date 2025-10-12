@@ -1,0 +1,109 @@
+{
+	"info": {
+		"name": "Management-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/employees/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ADDRESS}}/employees/get?id=1",
+					"protocol": "http",
+					"host": [
+						"{{ADDRESS}}"
+					],
+					"path": [
+						"employees",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "ID of the user you want to get from the database"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ADDRESS}}/employees/list",
+					"protocol": "http",
+					"host": [
+						"{{ADDRESS}}"
+					],
+					"path": [
+						"employees",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idToDelete\": \"1\", // ID of the user to delete in the database\r\n    \"email\": \"<email>\",\r\n    \"password\": \"<password>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ADDRESS}}/employees/delete",
+					"protocol": "http",
+					"host": [
+						"{{ADDRESS}}"
+					],
+					"path": [
+						"employees",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/employees/backup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n//  \"backupPath\": \"/tmp\", // Optional: Default is '/backups' \r\n    \"email\": \"<email>\",\r\n    \"password\": \"<password>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ADDRESS}}/employees/backup",
+					"protocol": "http",
+					"host": [
+						"{{ADDRESS}}"
+					],
+					"path": [
+						"employees",
+						"backup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
