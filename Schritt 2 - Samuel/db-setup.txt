@@ -10,16 +10,16 @@ CREATE TABLE employees (
 );
 
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Lara Meier', 'lara.meier@company.com', 'hashed_password_1', 'Werkstattleiterin');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Lara Meier', 'lara.meier@company.com', 'not set', 'Werkstattleiterin');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Cem Yildiz', 'cem.yildiz@company.com', 'hashed_password_2', 'Diagnostik & Elektronik');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Cem Yildiz', 'cem.yildiz@company.com', 'not set', 'Diagnostik & Elektronik');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Sofia Keller', 'sofia.keller@company.com', 'hashed_password_3', 'Serviceberaterin');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Sofia Keller', 'sofia.keller@company.com', 'not set', 'Serviceberaterin');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Jonas Frei', 'jonas.frei@company.com', 'hashed_password_4', 'Mechaniker');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Jonas Frei', 'jonas.frei@company.com', 'not set', 'Mechaniker');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Harald Lustig', 'harald.lustig@company.com', 'e190e93766d1d484b0d80f020d830a1693be577dd57a5b17b947b0881ed02c9e', 'Webadmin & Interne IT');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Harald Lustig', 'harald.lustig@company.com', '0e731198061491163073197128363787', 'Webadmin & Interne IT');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Mia Steiner', 'mia.steiner@company.com', 'hashed_password_6', 'Karosserie');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Mia Steiner', 'mia.steiner@company.com', 'not set', 'Karosserie');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Ramon Bucher', 'ramon.bucher@company.com', 'hashed_password_7', 'Lernender Automobil-Mechatroniker EFZ');
+INSERT INTO employees (name, email, password_hash, role) VALUES ('Ramon Bucher', 'ramon.bucher@company.com', 'not set', 'Lernender Automobil-Mechatroniker EFZ');
