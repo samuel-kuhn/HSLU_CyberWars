@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DB_NAME="employees.db"
 BACKUP_NAME="employees_backup_$(date +%Y%m%d_%H%M%S).db"
