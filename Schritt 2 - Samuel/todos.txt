@@ -1,0 +1,11 @@
+Harald user:
+
+TODO: create script to create harald user
+TODO: add docker-compose file to his home folder with only read permissions
+TODO: add auth_password.txt file to his home folder
+TODO: maybe add sudo command for harald to start docker container with docker-compose
+
+
+
+Exploit:
+TODO: update exploit example with working exploit for container setup
