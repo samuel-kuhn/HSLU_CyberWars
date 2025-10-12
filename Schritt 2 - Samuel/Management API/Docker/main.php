@@ -2,8 +2,6 @@
 //TODO: remove all notes from development
 //TODO: consider not actually deleting users from db so you cannot break the ctf easily
 //TODO: update all method descriptions where needed
-
-
 header('Content-Type: application/json');
 define('API_BASE', '/employees');
 
@@ -144,13 +142,12 @@ function backupDatabase(string $backupPath, string $authEmail, $authPassword): a
         return ['error' => 'Authentication failed.'];
     }
 
-    $command = "/bin/bash backup-database.sh " . $backupPath;
+    $command = "/bin/sh backup-database.sh " . $backupPath;
     exec($command, $output, $return_var);
 
     if ($return_var !== 0) {
         http_response_code(500);
-        return ['error' => 'Backup script exited with code $returnCode.',
-                'message' => $output];
+        return ['error' => 'Backup script exited with code $returnCode.'];
     }
 
     return ['message' => "Backup script ran successfully with exit code $return_var."];
