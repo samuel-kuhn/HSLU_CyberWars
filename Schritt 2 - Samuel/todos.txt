@@ -9,3 +9,6 @@ TODO: maybe add sudo command for harald to start docker container with docker-co
 
 Exploit:
 TODO: update exploit example with working exploit for container setup
+
+General: 
+TODO: create code backup zip with password protection
