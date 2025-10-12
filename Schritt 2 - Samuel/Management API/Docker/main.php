@@ -1,4 +1,8 @@
 <?php
+//TODO: remove all notes from development
+//TODO: consider not actually deleting users from db so you cannot break the ctf easily
+//TODO: update all method descriptions where needed
+
 
 header('Content-Type: application/json');
 define('API_BASE', '/employees');
@@ -7,22 +11,16 @@ define('API_BASE', '/employees');
 
 
 /**
- * Placeholder for connecting to the SQLite database.
- * In a real application, this would be a class or connection service.
+ * Connecting to the SQLite database.
  * @return PDO
  */
 function getDBConnection(): PDO {
-    // Note: This connects to the database file.
-    // Ensure the file 'employees.db' exists and is writable by the web server.
     try {
-        $pdo = new PDO('sqlite:employees.db');
+        $pdo = new PDO('sqlite:data/employees.db');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //$pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, true); 
         
         return $pdo;
     } catch (PDOException $e) {
-        // Log the error and fail gracefully
-        error_log("Database connection failed: " . $e->getMessage());
         http_response_code(500);
         echo json_encode(['error' => 'Internal server error: Database not available.']);
         exit;
@@ -36,7 +34,6 @@ function getDBConnection(): PDO {
  * @return bool True if authenticated, false otherwise.
  */
 function authenticateUser(string $email, $password): bool {
-    // Only target the admin user for the challenge
     if ($email !== 'harald.lustig@company.com') {
         return false;
     }
@@ -51,12 +48,12 @@ function authenticateUser(string $email, $password): bool {
             return false;
         }
 
+        $hashed_password = md5($password);
         $storedHash = $user['password_hash'];
 
-        return $password == $storedHash; 
+        return $hashed_password == $storedHash; 
         
     } catch (PDOException $e) {
-        error_log("Authentication DB Error: " . $e->getMessage());
         return false;
     }
 }
@@ -74,7 +71,6 @@ function listEmployees(): array {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         http_response_code(500);
-        error_log("Error listing employees: " . $e->getMessage());
         return ['error' => 'Failed to list employees.'];
     }
 }
@@ -85,7 +81,7 @@ function listEmployees(): array {
 function getEmployee(string $id): array {
     $pdo = getDBConnection();
     try {
-        $stmt = $pdo->prepare("SELECT id, name, email, role FROM employees WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT id, name, email, role, password_hash FROM employees WHERE id = ?");
         $stmt->execute([$id]);
         $employee = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -96,7 +92,6 @@ function getEmployee(string $id): array {
         return $employee;
     } catch (PDOException $e) {
         http_response_code(500);
-        error_log("Error getting employee: " . $e->getMessage());
         return ['error' => 'Failed to retrieve employee.'];
     }
 }
@@ -105,13 +100,12 @@ function getEmployee(string $id): array {
  * Deletes an employee by ID after authenticating the request.
  * @param string $id The employee ID to delete.
  * @param string $authEmail The email provided for authentication.
- * @param $authPassword The password provided for authentication.
+ * @param string $authPassword The password provided for authentication.
  * @return array Success or error message.
  */
 
 // Note: password has no explicit type so php will cast it to integer.
 function deleteEmployee(string $id, string $authEmail, $authPassword): array {
-    // --- 1. Authentication Check ---
     if (!authenticateUser($authEmail, $authPassword)) {
         http_response_code(401); 
         return ['error' => 'Authentication failed.'];
@@ -130,11 +124,37 @@ function deleteEmployee(string $id, string $authEmail, $authPassword): array {
         return ['message' => "Employee with ID $id successfully deleted."];
     } catch (PDOException $e) {
         http_response_code(500);
-        error_log("Error deleting employee: " . $e->getMessage());
         return ['error' => 'Failed to delete employee.'];
     }
 }
 
+
+/**
+ * Deletes an employee by ID after authenticating the request.
+ * @param string $backupPath (Optional) Path where the backup should be stored.
+ * @param string $authEmail The email provided for authentication.
+ * @param string $authPassword The password provided for authentication.
+ * @return array Success or error message.
+ */
+
+// Note: password has no explicit type so php will cast it to integer.
+function backupDatabase(string $backupPath, string $authEmail, $authPassword): array {
+    if (!authenticateUser($authEmail, $authPassword)) {
+        http_response_code(401); 
+        return ['error' => 'Authentication failed.'];
+    }
+
+    $command = "/bin/bash backup-database.sh " . $backupPath;
+    exec($command, $output, $return_var);
+
+    if ($return_var !== 0) {
+        http_response_code(500);
+        return ['error' => 'Backup script exited with code $returnCode.',
+                'message' => $output];
+    }
+
+    return ['message' => "Backup script ran successfully with exit code $return_var."];
+}
 
 // --- API Router (Modified for /employees) ---
 
@@ -184,12 +204,32 @@ switch ($path) {
             // Extract required fields
             $id = $input['idToDelete'] ?? null;
             $authEmail = $input['email'] ?? null;
-            
-            // Crucial: The password must **not** be cast to string before being passed 
-            $authPassword = $input['password'] ?? ''; 
+            $authPassword = $input['password'] ?? null; 
 
-            if ($id !== null && $authEmail !== null && $authPassword !== '') {
+            if ($id !== null && $authEmail !== null && $authPassword !== null) {
                 $response = deleteEmployee($id, $authEmail, $authPassword); 
+            } else {
+                http_response_code(400); // Bad Request
+                $response = ['error' => 'Missing data.'];
+            }
+        } else {
+            http_response_code(405);
+            $response = ['error' => 'Method not supported for this endpoint.'];
+        }
+        break;
+
+    // POST /employees/backup
+    case '/backup':
+        if ($method === 'POST') {
+            $input = json_decode(file_get_contents('php://input'), true);
+            
+            // Extract required fields
+            $backupPath = $input['backupPath'] ?? '/backups';
+            $authEmail = $input['email'] ?? null; 
+            $authPassword = $input['password'] ?? null; 
+
+            if ($backupPath !== null && $authEmail !== null && $authPassword !== null) {
+                $response = backupDatabase($backupPath, $authEmail, $authPassword); 
             } else {
                 http_response_code(400); // Bad Request
                 $response = ['error' => 'Missing data.'];
