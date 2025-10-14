@@ -5,10 +5,5 @@ TODO: add docker-compose file to his home folder with only read permissions
 TODO: add auth_password.txt file to his home folder
 TODO: maybe add sudo command for harald to start docker container with docker-compose
 
-
-
-Exploit:
-TODO: update exploit example with working exploit for container setup
-
 General: 
 TODO: create code backup zip with password protection
