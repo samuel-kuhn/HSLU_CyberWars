@@ -4,3 +4,5 @@ sudo apt install php7.4-fpm php7.4-cli -y
 sudo apt install php7.4-sqlite3
 
 
+zip -r --password " pussycatdolls" source.zip d/
+

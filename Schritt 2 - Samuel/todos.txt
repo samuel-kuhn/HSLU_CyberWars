@@ -4,6 +4,3 @@ TODO: create script to create harald user
 TODO: add docker-compose file to his home folder with only read permissions
 TODO: add auth_password.txt file to his home folder
 TODO: maybe add sudo command for harald to start docker container with docker-compose
-
-General: 
-TODO: create code backup zip with password protection
