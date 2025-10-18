@@ -1,7 +1,7 @@
 services:
   api: 
     container_name: Management_API
-    image: php-api
+    image: backend-api
     ports:
       - 8080:8080
     secrets:
