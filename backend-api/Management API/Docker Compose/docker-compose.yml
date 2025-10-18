@@ -1,5 +1,6 @@
 services:
   api: 
+    restart: always
     container_name: Management_API
     image: backend-api
     ports:
