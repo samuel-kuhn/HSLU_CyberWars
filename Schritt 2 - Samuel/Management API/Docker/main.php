@@ -1,12 +1,8 @@
 <?php
-//TODO: remove all notes from development
-//TODO: consider not actually deleting users from db so you cannot break the ctf easily
-//TODO: update all method descriptions where needed
 header('Content-Type: application/json');
 define('API_BASE', '/employees');
 
 // --- Helper Functions ---
-
 
 /**
  * Connecting to the SQLite database.
@@ -26,7 +22,7 @@ function getDBConnection(): PDO {
 }
 
 /**
- * Checks if the request is authenticated by the admin user (Harald Lustig).
+ * Checks if the request is authenticated as the admin user (Harald Lustig).
  * @param string $email The submitted email.
  * @param string $password The submitted plain password.
  * @return bool True if authenticated, false otherwise.
@@ -58,7 +54,6 @@ function authenticateUser(string $email, $password): bool {
 
 // --- API Logic Functions (Using PDO PLACEHOLDERS) ---
 
-
 /**
  * Lists all employees (excluding password hash).
  */
@@ -79,7 +74,7 @@ function listEmployees(): array {
 function getEmployee(string $id): array {
     $pdo = getDBConnection();
     try {
-        $stmt = $pdo->prepare("SELECT id, name, email, role, password_hash FROM employees WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = ?");
         $stmt->execute([$id]);
         $employee = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -102,7 +97,7 @@ function getEmployee(string $id): array {
  * @return array Success or error message.
  */
 
-// Note: password has no explicit type so php will cast it to integer.
+// Note: Delete logic not yet implemented
 function deleteEmployee(string $id, string $authEmail, $authPassword): array {
     if (!authenticateUser($authEmail, $authPassword)) {
         http_response_code(401); 
@@ -111,12 +106,13 @@ function deleteEmployee(string $id, string $authEmail, $authPassword): array {
 
     $pdo = getDBConnection();
     try {
-        $stmt = $pdo->prepare("DELETE FROM employees WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT * FROM employees WHERE id = ?");
         $stmt->execute([$id]);
+        $employee = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($stmt->rowCount() === 0) {
+        if (!$employee) {
             http_response_code(404); // Not Found
-            return ['error' => "Employee with ID $id not found for deletion."];
+            return ['error' => "Employee with ID $id not found."];
         }
 
         return ['message' => "Employee with ID $id successfully deleted."];
@@ -128,14 +124,14 @@ function deleteEmployee(string $id, string $authEmail, $authPassword): array {
 
 
 /**
- * Deletes an employee by ID after authenticating the request.
+ * Creates a backup of the employee database.
  * @param string $backupPath (Optional) Path where the backup should be stored.
  * @param string $authEmail The email provided for authentication.
  * @param string $authPassword The password provided for authentication.
  * @return array Success or error message.
  */
 
-// Note: password has no explicit type so php will cast it to integer.
+// Note: Backup logic not yet implemented
 function backupDatabase(string $backupPath, string $authEmail, $authPassword): array {
     if (!authenticateUser($authEmail, $authPassword)) {
         http_response_code(401); 
@@ -147,7 +143,7 @@ function backupDatabase(string $backupPath, string $authEmail, $authPassword): a
 
     if ($return_var !== 0) {
         http_response_code(500);
-        return ['error' => 'Backup script exited with code $returnCode.'];
+        return ['error' => "Backup script exited with code $return_var."];
     }
 
     return ['message' => "Backup script ran successfully with exit code $return_var."];
@@ -198,7 +194,6 @@ switch ($path) {
         if ($method === 'POST') {
             $input = json_decode(file_get_contents('php://input'), true);
             
-            // Extract required fields
             $id = $input['idToDelete'] ?? null;
             $authEmail = $input['email'] ?? null;
             $authPassword = $input['password'] ?? null; 
@@ -220,7 +215,6 @@ switch ($path) {
         if ($method === 'POST') {
             $input = json_decode(file_get_contents('php://input'), true);
             
-            // Extract required fields
             $backupPath = $input['backupPath'] ?? '/backups';
             $authEmail = $input['email'] ?? null; 
             $authPassword = $input['password'] ?? null; 
