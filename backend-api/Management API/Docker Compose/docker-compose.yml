@@ -4,7 +4,7 @@ services:
     container_name: Management_API
     image: backend-api
     ports:
-      - 8080:8080
+      - "127.0.0.1:8080:8080"
     secrets:
       - auth_password
     volumes:
