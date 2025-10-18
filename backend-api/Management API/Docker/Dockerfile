@@ -6,7 +6,7 @@ COPY backup-database.sh /usr/src/api/
 
 WORKDIR /usr/src/api
 
-RUN apk add --no-cache sqlite-dev \
+RUN apk add --no-cache sqlite-dev sqlite \
     && docker-php-ext-install pdo_sqlite \
     && apk del sqlite-dev
 

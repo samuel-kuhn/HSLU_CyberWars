@@ -20,4 +20,4 @@ cd - > /dev/null
 chown $USERNAME:$USERNAME /home/$USERNAME/source.zip
 
 # add flag to .bashrc
-echo "alias flag='echo "flag{it_is_always_worth_checking_hidden_files}"'"> /home/$USERNAME/.bash_aliases
+echo "alias flag='echo "flag{1t_1s_4lw4ys_w0rth_ch3ck1ng_h1dd3n_f1l3s}"'"> /home/$USERNAME/.bash_aliases
