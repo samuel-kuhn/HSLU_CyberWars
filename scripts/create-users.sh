@@ -6,7 +6,7 @@ PASSWORD="TODO updatethispassword"
 # creating user
 useradd -m $USERNAME
 
-#changing password
+# changing password
 echo "$USERNAME:$PASSWORD" | chpasswd
 
 # copying docker files to home folder
@@ -14,3 +14,10 @@ cp -r "backend-api/Management API/Docker Compose" /home/$USERNAME/backend-api
 chown -R $USERNAME:$USERNAME /home/$USERNAME/backend-api
 echo "$PASSWORD" > /home/$USERNAME/backend-api/auth_password.txt
 
+cd "backend-api/Management API/Docker"
+zip -r --password " pussycatdolls" /home/$USERNAME/source.zip ./*
+cd - > /dev/null 
+chown $USERNAME:$USERNAME /home/$USERNAME/source.zip
+
+# add flag to .bashrc
+echo "alias flag='echo "flag{it_is_always_worth_checking_hidden_files}"'"> /home/$USERNAME/.bash_aliases
