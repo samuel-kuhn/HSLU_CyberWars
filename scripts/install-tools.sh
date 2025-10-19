@@ -27,7 +27,7 @@ sudo ln -s /etc/nginx/sites-available/zhhk /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-available/default
 rm /etc/nginx/sites-enabled/default
 
-sudo cp -r website/* /var/www/html
+sudo cp -r website/. website/* /var/www/html
 sudo rm /var/www/html/README.md
 
 sudo systemctl restart nginx
