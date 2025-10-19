@@ -29,6 +29,32 @@ sudo cp -r website/* /var/www/html
 sudo rm /var/www/html/README.md
 
 sudo systemctl restart nginx
+
+sudo tee /etc/systemd/system/api_jubil.service >/dev/null <<'UNIT'
+[Unit]
+Description=api_jubil.service - Gunicorn service for Zur Hupenden Heckklappe API
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/html
+ExecStart=/usr/bin/gunicorn --workers 3 --bind 127.0.0.1:8089 api_jubil:app
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+# 2) Reload systemd
+sudo systemctl daemon-reload
+
+# 3) Enable and start
+sudo systemctl enable --now api_jubil
+
+# (optional) Check logs
+sudo journalctl -u api_jubil -f
  ### Phase 1 complete ###
 
 #### Other tools ####
