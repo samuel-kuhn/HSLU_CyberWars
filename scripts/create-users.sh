@@ -2,7 +2,6 @@
 
 USERNAME="harald"
 PASSWORD="TODO updatethispassword"
-WWWDATAPASS="$y$j9T$Bidh099nK4M4Rq2DpXIGf0$DBG82KOer5GGQu8Cx62ybvnCXnn4lm0JAdgzGWoPa25"
 
 # creating user
 useradd -m $USERNAME
