@@ -20,7 +20,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 ### Website (Phase 1) ###
 apt-get update
-apt-get install nginx -y
+apt-get install nginx gunicorn python3-flask -y
 
 sudo mv website/zhhk /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/zhhk /etc/nginx/sites-enabled/
