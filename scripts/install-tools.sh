@@ -30,6 +30,8 @@ rm /etc/nginx/sites-enabled/default
 sudo cp -r website/. website/* /var/www/html
 sudo rm /var/www/html/README.md
 
+sudo  chown -R www-data:www-data /var/www/html/
+
 sudo systemctl restart nginx
 
 sudo tee /etc/systemd/system/api_jubil.service >/dev/null <<'UNIT'
