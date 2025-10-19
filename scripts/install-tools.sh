@@ -54,9 +54,6 @@ sudo systemctl daemon-reload
 
 # 3) Enable and start
 sudo systemctl enable --now api_jubil
-
-# (optional) Check logs
-sudo journalctl -u api_jubil -f
  ### Phase 1 complete ###
 
 #### Other tools ####
