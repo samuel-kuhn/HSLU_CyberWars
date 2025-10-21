@@ -1,5 +1,8 @@
 # HSLU_CyberWars
 
+## Todos:
+- fix IP TTY screen or fix IP address in NAT
+
 ## Flags
 
 - stored in .bash_aliases in harald home folder as a alias
