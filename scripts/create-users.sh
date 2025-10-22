@@ -15,9 +15,9 @@ chown -R $USERNAME:$USERNAME /home/$USERNAME/backend-api
 echo "$PASSWORD" > /home/$USERNAME/backend-api/auth_password.txt
 
 cd "backend-api/Management API/Docker"
-zip -r --password " pussycatdolls" /home/$USERNAME/source.zip ./*
+zip -r --password " pussycatdolls" /var/backups/source.zip ./*
 cd - > /dev/null 
-chown $USERNAME:$USERNAME /home/$USERNAME/source.zip
+chown $USERNAME:$USERNAME /var/backups/source.zip
 
 # add flag to .bashrc
 echo "alias flag='echo "flag{1t_1s_4lw4ys_w0rth_ch3ck1ng_h1dd3n_f1l3s}"'"> /home/$USERNAME/.bash_aliases
