@@ -1,7 +1,7 @@
 # HSLU_CyberWars
 
 ## Todos:
-- fix IP TTY screen or fix IP address in NAT
+- update flags section
 
 ## Flags
 
