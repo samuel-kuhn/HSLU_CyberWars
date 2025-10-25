@@ -1,3 +1,15 @@
 Harald user:
 
 TODO: update password of harald user in script
+
+hinweis, dass es ein backup in /var/backups/
+
+include postman api file in source.zip
+emails in db ändern
+
+username hinzufügen in db
+
+todo in source:
+ - get password from docker secret
+
+
