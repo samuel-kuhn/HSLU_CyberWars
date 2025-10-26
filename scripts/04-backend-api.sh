@@ -8,9 +8,7 @@ cp -r "backend-api/Management API/Docker Compose" /home/$WEBADMIN_USERNAME/backe
 chown -R $WEBADMIN_USERNAME:$WEBADMIN_USERNAME /home/$WEBADMIN_USERNAME/backend-api
 echo "$WEBADMIN_PASSWORD" > /home/$WEBADMIN_USERNAME/backend-api/auth_password.txt
 
-cd "backend-api/Management API/Docker"
-zip -r --password $ZIP_PASSWORD /var/backups/source.zip ./*
-cd - > /dev/null 
+zip -r --password $ZIP_PASSWORD /var/backups/source.zip "backend-api/Management API/Docker" "backend-api/Management API/Docker Compose/docker-compose.yml" "backend-api/Management-API.postman_collection.json"
 chown $WEBADMIN_USERNAME:$WEBADMIN_USERNAME /var/backups/source.zip
 
 # add flag to .bashrc
