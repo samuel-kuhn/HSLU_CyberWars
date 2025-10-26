@@ -25,5 +25,5 @@ sudo usermod -s /bin/bash www-data
 
 echo "www-data:$WWW_DATA_PASSWORD_HASH" | sudo chpasswd -e
 
-echo "- create a backups like we did for the Management API" > /var/www/todos.txt
+echo "- create backups like we did for the Management API" > /var/www/todos.txt
 chown www-data:www-data /var/www/todos.txt
