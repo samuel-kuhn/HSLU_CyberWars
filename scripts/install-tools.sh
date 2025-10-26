@@ -16,25 +16,25 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 ### Website (Phase 1) ###
 apt-get update
 apt-get install nginx gunicorn python3-flask -y
 
-sudo mv website/zhhk /etc/nginx/sites-available/
-sudo ln -s /etc/nginx/sites-available/zhhk /etc/nginx/sites-enabled/
+mv website/zhhk /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/zhhk /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-available/default
 rm /etc/nginx/sites-enabled/default
 
-sudo cp -r website/. website/* /var/www/html
-sudo rm /var/www/html/README.md
+cp -r website/. website/* /var/www/html
+rm /var/www/html/README.md
 
-sudo  chown -R www-data:www-data /var/www/html/
+chown -R www-data:www-data /var/www/html/
 
-sudo systemctl restart nginx
+systemctl restart nginx
 
-sudo tee /etc/systemd/system/api_jubil.service >/dev/null <<'UNIT'
+tee /etc/systemd/system/api_jubil.service >/dev/null <<'UNIT'
 [Unit]
 Description=api_jubil.service - Gunicorn service for Zur Hupenden Heckklappe API
 After=network.target
@@ -52,10 +52,10 @@ WantedBy=multi-user.target
 UNIT
 
 # 2) Reload systemd
-sudo systemctl daemon-reload
+systemctl daemon-reload
 
 # 3) Enable and start
-sudo systemctl enable --now api_jubil
+systemctl enable --now api_jubil
  ### Phase 1 complete ###
 
 #### Other tools ####

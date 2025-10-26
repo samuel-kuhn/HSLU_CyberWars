@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# load secrets
+source scripts/secrets.sh
+
+
+
 docker build -t backend-api "backend-api/Management API/Docker/"
 
 docker compose -f /home/harald/backend-api/docker-compose.yml up -d
