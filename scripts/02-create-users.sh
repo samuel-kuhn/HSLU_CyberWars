@@ -4,7 +4,7 @@
 source scripts/secrets.sh
 
 #### webadmin #### 
-useradd -m $WEBADMIN_USERNAME
+useradd -m -s /bin/bash $WEBADMIN_USERNAME
 echo "$WEBADMIN_USERNAME:$WEBADMIN_PASSWORD" | chpasswd
 
 # copying docker files to home folder
