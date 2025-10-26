@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Installing tools and dependencies..."
+
 #### General Tools #### 
 apt-get update > /dev/null
 apt-get install -y ca-certificates curl nginx gunicorn python3-flask zip unzip > /dev/null

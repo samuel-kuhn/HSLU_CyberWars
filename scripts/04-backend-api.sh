@@ -17,7 +17,7 @@ chown $WEBADMIN_USERNAME:$WEBADMIN_USERNAME /var/backups/source.zip
 echo "alias flag='echo "flag{1t_1s_4lw4ys_w0rth_ch3ck1ng_h1dd3n_f1l3s}"'"> /home/$WEBADMIN_USERNAME/.bash_aliases
 
 #### Docker Steps #### 
-docker build -t backend-api "backend-api/Management API/Docker/"
+docker build -q -t backend-api "backend-api/Management API/Docker/"
 docker compose -f /home/harald/backend-api/docker-compose.yml up -d
 
 # add flag to sqlite in docker container
