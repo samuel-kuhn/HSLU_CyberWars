@@ -9,5 +9,5 @@ Allow: /
 Crawl-delay: 10
 
 # Contact
-# Webmaster: harald@zhhk.com
+# Webmaster: harald.lustig@zhhk.com
 

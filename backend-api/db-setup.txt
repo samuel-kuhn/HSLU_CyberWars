@@ -4,22 +4,23 @@ sqlite3 employees.db
 CREATE TABLE employees (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
+    username TEXT UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
     role TEXT NOT NULL
 );
 
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Lara Meier', 'lara.meier@company.com', 'not set', 'Werkstattleiterin');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Lara Meier', 'laram', 'lara.meier@zhhk.com', 'not set', 'Werkstattleiterin');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Cem Yildiz', 'cem.yildiz@company.com', 'not set', 'Diagnostik & Elektronik');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Cem Yildiz', 'cemy', 'cem.yildiz@zhhk.com', 'not set', 'Diagnostik & Elektronik');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Sofia Keller', 'sofia.keller@company.com', 'not set', 'Serviceberaterin');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Sofia Keller', 'sofiak', 'sofia.keller@zhhk.com', 'not set', 'Serviceberaterin');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Jonas Frei', 'jonas.frei@company.com', 'not set', 'Mechaniker');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Jonas Frei', 'jonasf', 'jonas.frei@zhhk.com', 'not set', 'Mechaniker');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Harald Lustig', 'harald.lustig@company.com', '0e731198061491163073197128363787', 'Webadmin & Interne IT');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Harald Lustig', 'haraldl', 'harald.lustig@zhhk.com', '0e731198061491163073197128363787', 'Webadmin & Interne IT');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Mia Steiner', 'mia.steiner@company.com', 'not set', 'Karosserie');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Mia Steiner', 'mias', 'mia.steiner@zhhk.com', 'not set', 'Karosserie');
 
-INSERT INTO employees (name, email, password_hash, role) VALUES ('Ramon Bucher', 'ramon.bucher@company.com', 'not set', 'Lernender Automobil-Mechatroniker EFZ');
+INSERT INTO employees (name, username, email, password_hash, role) VALUES ('Ramon Bucher', 'ramonb', 'ramon.bucher@zhhk.com', 'not set', 'Lernender Automobil-Mechatroniker EFZ');
