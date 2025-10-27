@@ -9,10 +9,10 @@ find /root -mindepth 1 \
 # removing default user
 DEFAULT_USER=$(id -nu 1000 2>/dev/null)
 
-echo "Removing user: $USER_TO_DELETE"
+echo "Removing user: $DEFAULT_USER"
 
-deluser --remove-home "$USER_TO_DELETE"
-delgroup "$USER_TO_DELETE"
+deluser --remove-home "$DEFAULT_USER"
+delgroup "$DEFAULT_USER"
 
 # power off
 poweroff
