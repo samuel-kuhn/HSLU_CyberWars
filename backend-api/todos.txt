@@ -1,2 +1,0 @@
-emails in db ändern
-username hinzufügen in db
