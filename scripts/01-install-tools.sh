@@ -4,7 +4,7 @@ echo "Installing tools and dependencies..."
 
 #### General Tools #### 
 apt-get update > /dev/null
-apt-get install -y ca-certificates curl nginx gunicorn python3-flask zip unzip > /dev/null
+apt-get install -y ca-certificates curl nginx gunicorn python3-flask zip unzip sqlite3 > /dev/null
 
 
 #### Docker #### 
@@ -21,8 +21,3 @@ echo \
 
 apt-get update > /dev/null
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin > /dev/null
-
-
-
-
-

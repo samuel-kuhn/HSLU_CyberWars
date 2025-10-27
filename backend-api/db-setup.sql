@@ -1,6 +1,3 @@
-sqlite3 employees.db
-
-
 CREATE TABLE employees (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
