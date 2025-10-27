@@ -1,7 +1,7 @@
 # HSLU_CyberWars
 
 ## Todos:
-- update flags section
+- uncomment cleanup script in setup-script.sh
 
 ## Flags
 
