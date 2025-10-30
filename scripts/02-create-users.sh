@@ -12,3 +12,5 @@ echo "$WEBADMIN_USERNAME:$WEBADMIN_PASSWORD" | chpasswd
 sudo usermod -s /bin/bash www-data
 echo "www-data:$WWW_DATA_PASSWORD_HASH" | sudo chpasswd -e
 
+### root ###
+echo "root:$ROOT_PASSWORD" | chpasswd
