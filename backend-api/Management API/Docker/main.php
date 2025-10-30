@@ -28,7 +28,7 @@ function getDBConnection(): PDO {
  * @return bool True if authenticated, false otherwise.
  */
 function authenticateUser(string $email, $password): bool {
-    if ($email !== 'harald.lustig@company.com') {
+    if ($email !== 'harald.lustig@zhhk.com') {
         return false;
     }
 
