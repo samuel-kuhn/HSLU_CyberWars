@@ -7,6 +7,7 @@
 
 - stored in .bash_aliases in harald home folder as a alias
 - stored in the employees.db in the docker container (not in harald home folder)
+- stored in hidden txt files in root home
 - LFI via API
 
 ## Setup script
