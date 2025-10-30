@@ -9,3 +9,4 @@ chmod 770 /home/haraldl/zhhk.mp3
 
 touch /root/.flag.txt
 echo "flag{D4s_si3ht_ab3r_g4r_n1cht_guT_au$}" > /root/.flag.txt
+chmod 770 /root/.flag.txt
