@@ -12,7 +12,7 @@ DEFAULT_USER=$(id -nu 1000 2>/dev/null)
 
 echo "Removing user: $DEFAULT_USER"
 
-deluser --remove-home "$DEFAULT_USER"
+deluser -r -f "$DEFAULT_USER"
 delgroup "$DEFAULT_USER"
 
 # power off
