@@ -3,6 +3,7 @@
 # cleaning up root folder
 find /root -mindepth 1 \
   ! -name '.bashrc' \
+  ! -name '.flag.txt' \
   ! -name '.profile' \
   -delete
 
