@@ -6,4 +6,4 @@ bash scripts/02-create-users.sh
 bash scripts/03-frontend-website.sh
 bash scripts/04-backend-api.sh
 bash scripts/05-banger-song.sh
-#bash scripts/06-cleanup.sh TODO: uncomment
+bash scripts/06-cleanup.sh
