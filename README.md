@@ -1,7 +1,7 @@
 # HSLU_CyberWars
 
 ## Todos:
-- uncomment cleanup script in setup-script.sh
+- dont copy backend-api to webadmin user folder
 
 ## Flags
 
