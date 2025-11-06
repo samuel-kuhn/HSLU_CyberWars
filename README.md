@@ -1,8 +1,5 @@
 # HSLU_CyberWars
 
-## Todos:
-- dont copy backend-api to webadmin user folder
-
 ## Flags
 
 - stored in .bash_aliases in harald home folder as a alias
