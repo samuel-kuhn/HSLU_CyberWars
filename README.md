@@ -11,7 +11,7 @@
 
 ### Prerequisites:
 
-1. repo needs to be copied/cloned to /root to the server
+1. repo needs to be copied/cloned to `/root` to the server
 2. user that executes the script must be root
 
 ### VM-Setup
