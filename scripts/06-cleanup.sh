@@ -15,5 +15,8 @@ echo "Removing user: $DEFAULT_USER"
 userdel -r -f "$DEFAULT_USER"
 delgroup "$DEFAULT_USER"
 
+# clear bash history
+history -c
+
 # power off
 poweroff
