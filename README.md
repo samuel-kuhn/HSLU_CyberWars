@@ -1,10 +1,14 @@
 # HSLU_CyberWars
 
-## Flags
+<details> 
+<summary>  Flags </summary>
+
 1. kann über LFI in der Python API gefunden werden
 2. gespeichert in der `employees.db` Datei im Docker Container
 3. gespeichert in `.bash_aliases` als Bash Alias `flag` im Home Ordner vom Webadmin
 4. gespeichert in der `.flag.txt` Datei im `root` Ordner
+</details>
+
 
 ## Installation
 
